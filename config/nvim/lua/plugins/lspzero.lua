@@ -18,17 +18,26 @@ return {
         end)
 
         require('mason').setup()
-        require('mason-lspconfig').setup({
+        require('mason-lspconfig').setup{
             ensure_installed = {
                 'lua_ls',
                 'gopls',
                 'golangci_lint_ls',
             },
+            automatic_instalation = true,
             handlers = {
                 lsp_zero.default_setup,
+                lua_ls = function()
+                    require('lspconfig').lua_ls.setup{
+                        settings = {
+                            Lua = {
+                                diagnostics = { globals = { 'vim' } }
+                            }
+                        }
+                    }
+                end,
             },
-            automatic_instalation = true,
-        })
+        }
     end
 }
 
