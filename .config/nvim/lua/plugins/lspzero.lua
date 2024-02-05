@@ -14,31 +14,46 @@ return {
         local lsp_zero = require('lsp-zero')
 
         lsp_zero.on_attach(function(_, bufnr)
-            lsp_zero.default_keymaps({buffer = bufnr})
+            lsp_zero.default_keymaps({ buffer = bufnr })
             lsp_zero.buffer_autoformat()
         end)
 
         require('mason').setup()
-        require('mason-lspconfig').setup{
+
+        local lspconfig = require('lspconfig')
+        local lua_ls_config = {
+            settings = {
+                Lua = {
+                    diagnostics = { globals = { 'vim' } }
+                }
+            }
+        }
+        local gopls_config = {
+            settings = {
+                gopls = {
+                    analyses = {
+                        unusedparams = true,
+                    },
+                    staticcheck = true,
+                    gofumpt = true,
+                }
+            }
+        }
+        require('mason-lspconfig').setup {
             ensure_installed = {
                 'lua_ls',
                 'gopls',
-                'golangci_lint_ls',
             },
             automatic_instalation = true,
             handlers = {
                 lsp_zero.default_setup,
                 lua_ls = function()
-                    require('lspconfig').lua_ls.setup{
-                        settings = {
-                            Lua = {
-                                diagnostics = { globals = { 'vim' } }
-                            }
-                        }
-                    }
+                    lspconfig.lua_ls.setup(lua_ls_config)
+                end,
+                gopls = function()
+                    lspconfig.gopls.setup(gopls_config)
                 end,
             },
         }
     end
 }
-

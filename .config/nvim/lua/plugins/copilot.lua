@@ -2,4 +2,3 @@
 return {
     "github/copilot.vim",
 }
-

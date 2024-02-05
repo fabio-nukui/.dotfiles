@@ -4,4 +4,3 @@ return {
     event = 'InsertEnter',
     opts = {},
 }
-

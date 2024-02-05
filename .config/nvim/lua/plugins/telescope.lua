@@ -16,12 +16,20 @@ return {
             },
             live_grep = {
                 additional_args = function()
-                    return {"--hidden"}
+                    return { "--hidden" }
                 end
             },
             buffers = {
                 sort_lastused = true,
                 ignore_current_buffer = true,
+                mappings = {
+                    i = {
+                        ["<C-d>"] = "delete_buffer",
+                    },
+                    n = {
+                        ["<C-d>"] = "delete_buffer",
+                    },
+                },
             },
         },
     },
@@ -39,4 +47,3 @@ return {
         vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
     end
 }
-
