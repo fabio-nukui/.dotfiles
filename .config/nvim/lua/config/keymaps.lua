@@ -23,6 +23,11 @@ vim.keymap.set("n", "<leader>y", "\"+y")
 vim.keymap.set("v", "<leader>y", "\"+y")
 vim.keymap.set("n", "<leader>Y", "\"+Y")
 
+-- quick buffer navigation
+vim.keymap.set("n", "<C-p>", "<cmd>bp<CR>")
+vim.keymap.set("n", "<C-n>", "<cmd>bn<CR>")
+vim.keymap.set("n", "<leader>q", "<cmd>bd<CR>")
+
 -- disable Q in normal mode
 vim.keymap.set("n", "Q", "<nop>")
 
