@@ -1,3 +1,7 @@
 # .dotfiles
 
-Use stow to sync: cd ~/.dotfiles && stow .
+Use stow to sync:
+```bash
+cd ~/.dotfiles
+stow .
+```
