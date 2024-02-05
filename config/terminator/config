@@ -3,13 +3,11 @@
 [keybindings]
 [profiles]
   [[default]]
-    font = Mono 20
+    font = RobotoMono Nerd Font 20
     use_system_font = False
-	show_titlebar = False
-
-    # Catpuccin mocha theme
-    cursor_color = "#f5e0dc"
+    show_titlebar = False
     background_color = "#1e1e2e"
+    cursor_color = "#f5e0dc"
     foreground_color = "#cdd6f4"
     palette = "#45475a:#f38ba8:#a6e3a1:#f9e2af:#89b4fa:#f5c2e7:#94e2d5:#bac2de:#585b70:#f38ba8:#a6e3a1:#f9e2af:#89b4fa:#f5c2e7:#94e2d5:#a6adc8"
 [layouts]
