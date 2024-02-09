@@ -36,6 +36,8 @@ return {
                     },
                     staticcheck = true,
                     gofumpt = true,
+                    completeUnimported = true,
+                    usePlaceholders = true,
                 }
             }
         }
