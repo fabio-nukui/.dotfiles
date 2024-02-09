@@ -42,8 +42,15 @@ vim.keymap.set("n", "<leader>7", "7gt")
 vim.keymap.set("n", "<leader>8", "8gt")
 vim.keymap.set("n", "<leader>9", "9gt")
 
+-- close buffer
+vim.keymap.set("n", "<leader>x", "<cmd>bd<CR>")
+
 -- disable Q in normal mode
 vim.keymap.set("n", "Q", "<nop>")
+
+-- navigate diagnostics
+vim.keymap.set("n", "<leader>g", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+vim.keymap.set("n", "<leader>G", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 
 -- quickfix navigation
 vim.keymap.set("n", "<C-k>", "<cmd>cnext<CR>zz")
