@@ -29,9 +29,8 @@ vim.keymap.set("n", "<C-p>", "<cmd>tabmove -<CR>")
 vim.keymap.set("n", "<leader>q", "<cmd>tabclose<CR>")
 vim.keymap.set("n", "<leader>Q", "<cmd>tabclose !<CR>")
 
--- tab navigation
-vim.keymap.set("n", "<leader>n", "<cmd>tabn<CR>")
-vim.keymap.set("n", "<leader>p", "<cmd>tabp<CR>")
+-- quick tab navigation
+vim.keymap.set("n", "gr", "<cmd>tabp<CR>")
 vim.keymap.set("n", "<leader>1", "1gt")
 vim.keymap.set("n", "<leader>2", "2gt")
 vim.keymap.set("n", "<leader>3", "3gt")
