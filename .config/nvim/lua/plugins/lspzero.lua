@@ -33,6 +33,8 @@ return {
                 gopls = {
                     analyses = {
                         unusedparams = true,
+                        unusedvariable = true,
+                        unusedwrite = true,
                     },
                     staticcheck = true,
                     gofumpt = true,
