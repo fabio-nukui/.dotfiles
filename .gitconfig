@@ -1,0 +1,6 @@
+[user]
+	name = Fabio Nukui
+	email = fabio.nukui@gmail.com
+
+[url "git@github.com:bit-bolt/"]
+	insteadOf = https://github.com/bit-bolt/
