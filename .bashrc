@@ -65,7 +65,6 @@ fi
 export PATH="$PATH:/usr/local/go/bin"
 export PATH="$PATH:$(go env GOPATH)/bin"
 export PATH="$PATH:/home/ubuntu/.foundry/bin"
-alias gg='go run scripts/scratch.go'
 
 # nvm
 export NVM_DIR="$HOME/.nvm"
@@ -90,4 +89,6 @@ if [ -f "/home/ubuntu/miniforge3/etc/profile.d/mamba.sh" ]; then
     . "/home/ubuntu/miniforge3/etc/profile.d/mamba.sh"
 fi
 # <<< conda initialize <<<
+
+eval "$(zoxide init --cmd cd bash)"
 
