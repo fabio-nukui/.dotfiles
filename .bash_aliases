@@ -1,7 +1,5 @@
 alias ..='cd ..'
 
-alias vim=nvim
-
 alias ll='ls -lahF'
 alias la='ls -A'
 alias l='ls -CF'
