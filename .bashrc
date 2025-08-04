@@ -92,3 +92,10 @@ fi
 
 eval "$(zoxide init --cmd cd bash)"
 
+# Refresh tmux variables for bash
+function prompt_command() {
+  if [ -n "${TMUX}" ]; then
+    eval "$(tmux show-environment -s)"
+  fi
+}
+PROMPT_COMMAND=prompt_command
