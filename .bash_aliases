@@ -15,6 +15,3 @@ _load_dotenv() {
 }
 
 alias de='_load_dotenv'
-
-alias bsql='psql -d $(aws secretsmanager get-secret-value --secret-id arb-postgresDB-dev01 | jq -r .SecretString)'
-

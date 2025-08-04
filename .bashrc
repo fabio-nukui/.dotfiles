@@ -48,11 +48,15 @@ if [ -x /usr/bin/dircolors ]; then
     alias diff='diff --color'
 fi
 
+# Fix for WSL
 export DISPLAY=:0
 
 # Default Editor
 if which nvim &> /dev/null; then
     export EDITOR=nvim
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 else
     export EDITOR=vim
 fi
@@ -62,35 +66,16 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # Go
-export PATH="$PATH:/usr/local/go/bin"
-export PATH="$PATH:$(go env GOPATH)/bin"
-export PATH="$PATH:/home/ubuntu/.foundry/bin"
-
-# nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/ubuntu/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/ubuntu/miniforge3/etc/profile.d/conda.sh" ]; then
-        . "/home/ubuntu/miniforge3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/ubuntu/miniforge3/bin:$PATH"
-    fi
+if which go &> /dev/null; then
+    export PATH="$PATH:/usr/local/go/bin"
+    export PATH="$PATH:$(go env GOPATH)/bin"
+    export PATH="$PATH:$HOME/.foundry/bin"
 fi
-unset __conda_setup
 
-if [ -f "/home/ubuntu/miniforge3/etc/profile.d/mamba.sh" ]; then
-    . "/home/ubuntu/miniforge3/etc/profile.d/mamba.sh"
+# Zoxide
+if which zoxide &> /dev/null; then
+    eval "$(zoxide init --cmd cd bash)"
 fi
-# <<< conda initialize <<<
-
-eval "$(zoxide init --cmd cd bash)"
 
 # Refresh tmux variables for bash
 function prompt_command() {
